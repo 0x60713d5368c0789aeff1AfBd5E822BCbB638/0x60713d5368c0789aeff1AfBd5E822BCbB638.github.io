@@ -19,19 +19,23 @@ export default observer(() => {
       <ContentStyle>
         {/*Upcoming*/}
         <div className="dapp_view">
-          <div className="title">Upcoming</div>
+          <div className="title">LuckyGames</div>
           <div className="dapp_content">
             <div className="dapp_info">
               <div className="dapp_icon">
                 <img src={createURL("icons/icon_dapp_lg.png")} />
               </div>
               <div className="dapp_txt">
-                DAppinfoDAppinfo DAppinfoDAppinfo DAppinfoDAppinfo
+                A fair game of smart contract. Launch Time: Waiting for further
+                notice.
               </div>
             </div>
             <div className="dapp_link_btns">
               <div>
-                <a href="">
+                <a
+                  href="https://ln5.sync.com/dl/2c03c31a0/zz6d7pda-9th26h35-vbjgvyjc-vfddwe9f"
+                  target={"_blank"}
+                >
                   <img src={createURL("btns/btn_wpaper.png")} />
                 </a>
               </div>
