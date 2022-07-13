@@ -1,18 +1,18 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
 
-import { useStores } from "@/hooks";
-import { observer } from "mobx-react-lite";
+import { useStores } from '@/hooks'
+import { observer } from 'mobx-react-lite'
 
-import styled from "styled-components";
-import Title from "../components/title";
-import { useBurn } from "@/lib/burn";
-import { useAddress } from "@/lib/address";
+import styled from 'styled-components'
+import Title from '../components/title'
+import { useBurn } from '@/lib/burn'
+import { useAddress } from '@/lib/address'
 export default observer(() => {
-  const { auto, manual, balance } = useBurn();
-  const Addresses = useAddress();
+  const { auto, manual, balance } = useBurn()
+  const Addresses = useAddress()
   return (
     <ViewStyled>
       <Header />
@@ -23,25 +23,19 @@ export default observer(() => {
           <div className="dapp_content">
             <div className="dapp_info">
               <div className="dapp_icon">
-                <img src={createURL("icons/icon_dapp_lg.png")} />
+                <img src={createURL('icons/icon_dapp_lg.png')} />
               </div>
-              <div className="dapp_txt">
-                A fair game of smart contract. Launch Time: Waiting for further
-                notice.
-              </div>
+              <div className="dapp_txt">A fair game of smart contract. Launch Time: Waiting for further notice.</div>
             </div>
             <div className="dapp_link_btns">
               <div>
-                <a
-                  href="https://ln5.sync.com/dl/2c03c31a0/zz6d7pda-9th26h35-vbjgvyjc-vfddwe9f"
-                  target={"_blank"}
-                >
-                  <img src={createURL("btns/btn_wpaper.png")} />
+                <a href="https://ln5.sync.com/dl/2c03c31a0/zz6d7pda-9th26h35-vbjgvyjc-vfddwe9f" target={'_blank'}>
+                  <img src={createURL('btns/btn_wpaper.png')} />
                 </a>
               </div>
               <div>
-                <a href="">
-                  <img src={createURL("btns/btn_join.png")} />
+                <a href="https://finance-dao.github.io/luckygames">
+                  <img src={createURL('btns/btn_join.png')} />
                 </a>
               </div>
             </div>
@@ -50,20 +44,20 @@ export default observer(() => {
       </ContentStyle>
       <Footer current="dapp" />
     </ViewStyled>
-  );
-});
+  )
+})
 const ViewStyled = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
-`;
+`
 const ContentStyle = styled.div`
   flex: 1;
   height: 0;
   flex-shrink: 0;
   padding: 0 0.26rem 0.26rem;
-  background: url(${createURL("page_bg.png")}) no-repeat center top/contain;
+  background: url(${createURL('page_bg.png')}) no-repeat center top/contain;
   overflow-y: auto;
   .dapp_view {
     margin-top: 0.26rem;
@@ -78,8 +72,7 @@ const ContentStyle = styled.div`
       font-size: 0.24rem;
       font-weight: bold;
       color: #ff00ff;
-      background: url(${createURL("titles/title_bg_def.png")}) no-repeat center
-        top/100%;
+      background: url(${createURL('titles/title_bg_def.png')}) no-repeat center top/100%;
     }
     .dapp_content {
       padding: 0.18rem 0.24rem 0.28rem;
@@ -122,4 +115,4 @@ const ContentStyle = styled.div`
       }
     }
   }
-`;
+`

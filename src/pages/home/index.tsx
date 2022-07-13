@@ -10,9 +10,11 @@ import styled from 'styled-components'
 import Countdown from './countdown'
 import { useFomo } from '@/lib/fomo'
 import { useAddress } from '@/lib/address'
+import { useBurn } from '@/lib/burn'
 
 export default observer((props: any) => {
   const { value, lastTime, totalSupply, circleSupply, burned, tierMintBalance, countdown } = useFomo()
+  const { balance } = useBurn()
   const Addresses = useAddress()
   const endTime = useMemo(() => {
     if (lastTime == 0) {
@@ -26,27 +28,25 @@ export default observer((props: any) => {
       <ContentStyle>
         <HomeStyle>
           <div className="top_info">
-            <div className="top_num">{value.toFixed(4)}</div>
+            <div className="top_num">{balance.toFixed(4)}</div>
             <div className="top_icon">
               <img src={createURL('icons/icon_bnb.png')} />
               <span>BNB</span>
             </div>
             <div className="top_tips">
-              Super Prize:
+              Repurchase Contract:
               <br />
-              Pay 0.25BNB - 10BNB for minting FDAO,
+              Sell tax will be auto transfer to repurchase contract,
               <br />
-              If you are in the ending (last) round,
-              <br />
-              You will claim BNB from super prize pool.
+              This will be a catalyst to push up the price of FDAO tokens on pancakeswap.
             </div>
             <div className="count_view">
-              <Countdown endTime={endTime} />
+              <Countdown endTime={0} />
             </div>
             <div className="btn_view">
-              <Link to="/mint">
-                <img className="btn_mint" src={createURL('btns/btn_mint.png')} />
-              </Link>
+              <a href={`https://pancakeswap.finance/swap?outputCurrency=${Addresses.Fdao}`} target="_blank">
+                <img className="btn_mint" src={createURL('btns/btn_buy.png')} />
+              </a>
             </div>
           </div>
           <div className="rank_list_view">
@@ -63,9 +63,9 @@ export default observer((props: any) => {
               <div className="info_num">{burned.toFixed(4)}</div>
               <div className="info_txt">Mining pool balance:</div>
               <div className="info_num">{tierMintBalance.toFixed(4)}</div>
-              <a href={`https://pancakeswap.finance/swap?outputCurrency=${Addresses.Fdao}`} className="img_btn" target="_blank">
+              {/* <a href={`https://pancakeswap.finance/swap?outputCurrency=${Addresses.Fdao}`} className="img_btn" target="_blank">
                 <img src={createURL('btns/btn_buy.png')} />
-              </a>
+              </a> */}
             </div>
             {/* <RankList /> */}
           </div>
